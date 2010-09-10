@@ -1,9 +1,15 @@
 /*
- *jQuery UI Spinner 1.21
+ *jQuery UI Spinner 1.22
  *
  *Copyright (c) 2009-2010 Brant Burnett
  *Copyright (c) 2010 Johannes Geppert http://www.jgeppert.com
  *Dual licensed under the MIT or GPL Version 2 licenses.
+ *
+ *  Depends:
+ *	jquery.ui.core.js
+ *	jquery.ui.widget.js
+ *	jquery.ui.mouse.js
+ *	jquery.ui.position.js
  */
  (function($, undefined) {
 
@@ -168,6 +174,15 @@ $.widget('ui.spinner', {
 		if (showOn != 'always') {
 			btnContainer.css('opacity', 0);
 		}
+
+		// use position to place buttons on the right side from input element
+		wrapper.position({
+			  of: this.element,
+			  my: 'left center',
+			  at: 'right center',
+			  offset: '0 0',
+			  collision: 'flip flip'
+		});
 
 		/* Event Bindings */
 
