@@ -156,7 +156,9 @@ $.widget( "ui.spinner" , {
 		// apply className before doing any calculations because it could affect them
 		if (className) { wrapper.addClass(className); }
 
-		wrapper.append(btnContainer);
+		wrapper.append(btnContainer.css({ height: height, left: -buttonWidth-rightMargin,
+			// use offset calculation to fix vertical position in Firefox
+			top: (input.offset().top - wrapper.offset().top) + "px" }));
 
 		buttons = self.buttons = btnContainer.find( ".ui-spinner-button" );
 		buttons.css({ width: buttonWidth - (box ? buttons.outerWidth() - buttons.width() : 0), height: height/2 - (box ? buttons.outerHeight() - buttons.height() : 0) });

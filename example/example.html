@@ -14,6 +14,8 @@
 		<script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/"></script>
 		<script type="text/javascript">
 			jQuery().ready(function($) {
+				$("#switcher").themeswitcher();
+
 				$('#spinner').spinner({ min: -100, max: 100 });
 				$('#spinnerfast').spinner({ min: -1000, max: 1000, increment: 'fast' });
 				$('#spinnerhide').spinner({ min: 0, max: 100, showOn: 'both' });
@@ -34,8 +36,6 @@
 				$('#disable').click(function() { $('#spinnerdisable').spinner('disable'); });
 				$('#getValue').click(function() { alert($('#spinner').spinner('value')); });
 				$('#destroy').click(function() { $('#spinner').spinner('destroy'); });
-
-				$("#switcher").themeswitcher();
 			});
 		</script>
 	</head>
@@ -46,7 +46,7 @@
 					jQuery UI Spinner Examples
 				</h1>
 				<p>
-					Version : 1.23
+					Version : 1.24
 					<br/>
 					Download : <a href="http://github.com/jogep/jquery.ui.spinner">Github</a>
 					<br/>
@@ -57,7 +57,7 @@
 				<h2>
 					Examples :
 				</h2>
-				<p>This is a simple example/test page for my jQuery UI 1.8.5 Spinner Widget v1.23.  You can find the current release version online at <a href="http://github.com/jogep/jquery.ui.spinner">GitHub</a>.</p>
+				<p>This is a simple example/test page for my jQuery UI 1.8.5 Spinner Widget v1.24.  You can find the current release version online at <a href="http://github.com/jogep/jquery.ui.spinner">GitHub</a>.</p>
 
 
 
@@ -107,7 +107,7 @@
 			<div id="footer" class="ui-widget-header ui-corner-all">
 				<p>
 					Please report bugs
-					<a href="http://www.jgeppert.com/kontakt/">here</a>
+					<a href="http://github.com/jogep/jquery.ui.spinner/issues">here</a>
 				</p>
 				<a href="http://www.jgeppert.com/">Java, J2EE and Web Programming</a>
 			</div>
