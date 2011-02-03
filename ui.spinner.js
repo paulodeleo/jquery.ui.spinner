@@ -435,7 +435,7 @@ $.widget( "ui.spinner" , {
 		if (!step && ((temp = input.attr( "step" )) !== null)) {
 			if (temp != "any" ) {
 				step = parseFloat(temp);
-				options.largeStep *= step;
+				options.largeStep *= step || options.defaultStep;
 			}
 		}
 		options.step = step = step || options.defaultStep;
@@ -450,8 +450,13 @@ $.widget( "ui.spinner" , {
 			// ensure that min is less than or equal to max
 			if (min > max) { min = max; }
 
-			// set maxlength based on min/max
-			maxlength = Math.max(Math.max(maxlength, options.format(max, places, input).length), options.format(min, places, input).length);
+			// set maxlength based on min/max (but only if min ou max was set)
+			if (max || min) {
+				maxlength = Math.max(Math.max(maxlength, options.format(max, places, input).length), options.format(min, places, input).length);
+			}
+			else {
+				maxlength = 0;
+			}
 		}
 
 		// only lookup input maxLength on init
@@ -534,10 +539,10 @@ $.widget( "ui.spinner" , {
 			increment = self.options.increment,
 			curIncrement = increment[self.incCounter];
 
-		this._trigger( "beforeSpin" , event, { item: this.selectedItem } );
+		//this._trigger( "beforeSpin" , event, { item: this.selectedItem } );
 		self._doSpin(dir * curIncrement.mult * (large ? self.options.largeStep : self.options.step));
 		self.counter++;
-		this._trigger( "afterSpin" , event, { item: this.selectedItem } );
+		//this._trigger( "afterSpin" , event, { item: this.selectedItem } );
 
 		if ((self.counter > curIncrement.count) && (self.incCounter < increment.length-1)) {
 			self.counter = 0;
